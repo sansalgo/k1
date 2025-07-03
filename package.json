@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.10",
+    "@types/mdast": "^4.0.4",
+    "@types/node": "^24.0.10",
     "date-fns": "^4.1.0",
     "framer-motion": "^12.18.1",
     "hastscript": "^9.0.1",

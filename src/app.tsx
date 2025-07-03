@@ -7,9 +7,10 @@ import { generateRandomNDigits } from "./utils/number";
 import remarkDirective from "remark-directive";
 import { visit } from "unist-util-visit";
 import { kColorClassNames } from "./constants/color";
+import type { Root } from "mdast";
 
 function remarkColorSpanDirective() {
-  return (tree) => {
+  return (tree: Root) => {
     visit(tree, (node) => {
       if (node.type !== "textDirective") return;
 
