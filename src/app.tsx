@@ -17,9 +17,9 @@ function remarkColorSpanDirective() {
       const name = node.name?.trim();
       if (!name) return;
 
-      // Regex matches strings like "k-0", "k-9", "k-10" ... "k-98"
-      // Format: 'k-' followed by a number from 0 to 98 with no spaces
-      const match = /^k-(?:[0-9]|[1-9][0-8])$/.exec(name);
+      // Regex matches strings like "k0", "k9", "k10" ... "k98"
+      // Format: 'k' followed by a number from 0 to 98 with no spaces
+      const match = /^k(?:[0-9]|[1-9][0-8])$/.exec(name);
       if (!match) return;
 
       node.data ||= {};
@@ -40,7 +40,7 @@ function App() {
   const [randomNumber] = useState<string>(generateRandomNDigits(3));
   const nickname = `SANS${randomNumber}`;
   const lines = [
-    { user: "", msg: ":k-3[\\* Now talking in **#whoami**]" },
+    { user: "", msg: ":k3[\\* Now talking in **#whoami**]" },
     { user: "Anonymous", msg: "**Who are you?**" },
     {
       user: nickname,
@@ -97,14 +97,14 @@ function App() {
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-3xl py-4">
-        <h1 className="font-bold text-2xl text-k-4 select-none cursor-pointer">
+        <h1 className="font-bold text-2xl text-k4 select-none cursor-pointer">
           <DecryptedText
             text=">|<"
             revealDirection="center"
             animateOn="click"
           />
         </h1>
-        <div className="bg-k-89 p-3 rounded-lg mt-4">
+        <div className="mt-4">
           {lines.map((line, idx) => (
             <div key={idx}>
               <Markdown
@@ -116,9 +116,9 @@ function App() {
                 {(() => {
                   const prefix =
                     line.user === "Anonymous"
-                      ? `<:k-13[${line.user}]> `
+                      ? `<:k13[${line.user}]> `
                       : line.user.startsWith("SANS")
-                      ? `<:k-11[${line.user}]> `
+                      ? `<:k11[${line.user}]> `
                       : "";
                   return prefix + line.msg;
                 })()}
