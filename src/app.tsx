@@ -7,15 +7,14 @@ import {
   splitBlock,
 } from "prosemirror-commands";
 import { keymap } from "prosemirror-keymap";
+import { defaultMarkdownSerializer } from "prosemirror-markdown";
+import { Node as ProseMirrorNode } from "prosemirror-model";
 import { schema as basicSchema } from "prosemirror-schema-basic";
 import { EditorState, Plugin } from "prosemirror-state";
 import { Decoration, DecorationSet, EditorView } from "prosemirror-view";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import Markdown from "react-markdown";
-import { defaultMarkdownSerializer } from "prosemirror-markdown";
-import { Node as ProseMirrorNode } from "prosemirror-model";
 import scrollIntoView from "scroll-into-view-if-needed";
-import { fetchEventSource } from "@microsoft/fetch-event-source";
 
 function placeholderPlugin(placeholder: string): Plugin {
   return new Plugin({
