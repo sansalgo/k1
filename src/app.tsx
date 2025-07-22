@@ -276,7 +276,7 @@ function App() {
                                                   </div>
                                                 </div>
                                               ) : (
-                                                <div className="markdown prose dark:prose-invert dark w-full break-words">
+                                                <div className="markdown prose w-full break-words">
                                                   <Markdown>
                                                     {message.content}
                                                   </Markdown>
